@@ -152,7 +152,7 @@ sub parse_soc {
     my $soc = $ENV{SSH_ORIGINAL_COMMAND};
     $soc ||= 'info';
 
-    my $git_commands = "git-upload-pack|git upload-pack|git-receive-pack|git-upload-archive";
+    my $git_commands = "git-upload-pack|git upload-pack|git-receive-pack|git receive-pack|git-upload-archive|git upload-archive";
     if ( $soc =~ m(^($git_commands) '?/?(.*?)(?:\.git(\d)?)?'?$) ) {
         my ( $verb, $repo, $trace_level ) = ( $1, $2, $3 );
         $ENV{D} = $trace_level if $trace_level;
